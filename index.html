@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhóm 2</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="style.css">
+
+    
+</head>
+<body>
+
+    <div class="nav-toggle" id="nav-toggle">
+        <i class="uil uil-bars"></i>
+    </div>
+
+    <aside class="sidebar" id="sidebar">
+        <nav class="nav">
+            <div class="nav-logo" style="background-color:black">
+                <a href="#" class="nav-logo-text" style="background-color: black;">< / ></a>
+            </div>
+
+            <div class="nav-menu">
+                <div class="menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link active-link">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">Giới thiệu</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#work" class="nav-link">Game</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="gallery/index.html" target="_blank" class="nav-link">
+                                <span class="nav-name">Kỉ niệm</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="btn-share">
+                <i class="uil uil-share-alt social-share"></i>
+            </div>
+
+            <div class="nav-close" id="nav-close">
+                <i class="uil uil-times"></i>
+            </div>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <section class="home section" id="home">
+            <canvas id="pixel-canvas"></canvas>
+            <div class="home-container container grid">
+                <div class="home-social">
+                    <span class="home-social-follow"> Social media</span>
+                    <div class="home-social-links">
+                        <a href="https://www.facebook.com/kt007.info" target="_blank" class="home-social-link">
+                            <i class="uil uil-facebook-f"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/minhtam_007" target="_blank" class="home-social-link">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+
+                        <a href="https://www.x.com" target="_blank" class="home-social-link">
+                            <i class="uil uil-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+            <div class="home-data">
+
+                <h3 class="home-subtitle">Xin chào, chúng tôi là: </h3>
+                <h1 class="home-title glow-text">Nhóm rắn độc</h1>
+
+                <p class="home-description">12 năm kinh nghiệm trong việc đi học</p>
+
+                <a href="#about" class="button">
+                    <i class="uil uil-user button-icon"></i>
+                    Tìm hiểu thêm
+                </a>
+            </div>
+
+            <div class="my-info">
+                <div class="info-item">
+                    <i class="uil uil-facebook-messenger info-icon"></i>
+
+                    <div>
+                        <h3 class="info-title">Messenger</h3>
+                        <span class="info-subtitle">kt007.info</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="uil uil-whatsapp info-icon"></i>
+
+                    <div>
+                        <h3 class="info-title">Whatsapp</h3>
+                        <span class="info-subtitle">333-666-333</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="uil uil-envelope-edit info-icon"></i>
+
+                    <div>
+                        <h3 class="info-title">Email</h3>
+                        <span class="info-subtitle">randoc@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
+        </section>
+
+        <section class="about section" id="about">
+            <h2 class="section-title">Giới thiệu về chúng tôi</h2>
+
+            <div class="about-container container grid">
+                <img src="assets/nen.jpg" alt="" class="about-img">
+
+                <div class="about-data">
+
+                <div class="pt-8 text-sm space-y-3">
+
+                <p>Chúng tôi là Nhóm Rắn Độc – nơi quy tụ những bộ não hoạt động theo cơ chế… không ai hiểu nổi, kể cả chủ sở hữu.</p>
+                <p><strong>Trong giờ Toán:</strong><br>
+                – Cả lớp tìm X.<br>
+                – Chúng tôi tìm lý do vì sao mình lại chọn ban tự nhiên.</p>
+
+                <p><strong>Trong giờ Văn:</strong><br>
+                – Người ta phân tích tác phẩm.<br>
+                – Chúng tôi phân tích tâm trạng của chính mình khi chưa học bài.</p>
+
+                <p><strong>Điểm mạnh của nhóm:</strong></p>
+
+                <ul class="list-disc pl-5">
+                  <li>Học bài 5 phút trước khi kiểm tra và vẫn tự tin 200%</li>
+                  <li>Suy nghĩ rất nhiều… nhưng sai hướng</li>
+                  <li>Khi bị gọi lên bảng: “Em nghĩ đây là một cách tiếp cận sáng tạo”</li>
+                </ul>
+
+                <p><strong>Triết lý sống:</strong><br>
+                👉 “Nếu không hiểu bài, hãy khiến người khác nghĩ mình hiểu.”</p>
+
+                <p>12A2 có thể có học bá, nhưng Rắn Độc là minh chứng sống rằng:  
+                Trí thông minh không đo bằng điểm số… mà đo bằng khả năng sống sót qua mỗi tiết học.</p>
+                <p>-----</p>
+            </div>
+
+                    <div class="about-info">
+                        <div class="about-box">
+                            <i class="uil uil-award about-icon"></i>
+                            <h3 class="about-title">Experience</h3>
+                            <span class="about-subtitle">12 năm đi học</span>
+                        </div>
+
+                        <div class="about-box">
+                            <i class="uil uil-suitcase-alt about-icon"></i>
+                            <h3 class="about-title">Completed</h3>
+                            <span class="about-subtitle">Bài tập tết 2026</span>
+                        </div>
+
+                        <div class="about-box">
+                            <i class="uil uil-headphones-alt about-icon"></i>
+                            <h3 class="about-title">Mục tiêu</h3>
+                            <span class="about-subtitle"> Đậu nv1 </span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="button"><i class="uil uil-navigator button-icon"></i>Liên hệ chúng tôi</a>
+                </div>
+            </div>
+            
+            
+            <h2 class="section-title"></h2>
+            <h2 class="section-title"></h2>
+            <h2 class="section-title"></h2>
+
+            <h2 class="section-title">Thành viên</h2>
+
+            <div class="crew-carousel">
+                <button class="crew-arrow crew-left">‹</button>
+                <div class="crew-track">
+                <div class="crew-card" data-index="0">
+                    <img src="assets/thanhvien/avt-thao.jpg">
+
+                    <div class="crew-overlay">
+                        <a href="info/thao.html" target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="crew-card" data-index="1">
+                    <img src="assets/thanhvien/avt-giang.png" alt="Crew Member 2">
+
+                    <div class="crew-overlay">
+                        <a href="info/giang.html" target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="crew-card" data-index="2">
+                    <img src="assets/thanhvien/avt-tam.jpg" alt="Crew Member 3">
+
+                    <div class="crew-overlay">
+                        <a href="info/tam.html" target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="crew-card" data-index="3">
+                    <img src="assets/thanhvien/avt-phuong.jpg" alt="Crew Member 4">
+
+                    <div class="crew-overlay">
+                        <a href="info/phuong.html" target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="crew-card" data-index="4">
+                    <img src="assets/thanhvien/avt-anh.jpg" alt="Crew Member 5">
+
+                    <div class="crew-overlay">
+                        <a href="info/anh.html"  target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="crew-card" data-index="5">
+                    <img src="assets/thanhvien/avt-bao.jpg" alt="Crew Member 6">
+
+                    <div class="crew-overlay">
+                        <a href="info/bao.html" target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="crew-card" data-index="6">
+                    <img src="assets/thanhvien/avt-dung.jpg" alt="Crew Member 7">
+
+                    <div class="crew-overlay">
+                        <a href="info/dung.html" target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="crew-card" data-index="7">
+                    <img src="assets/thanhvien/avt-linh.jpg" alt="Crew Member 8">
+
+                    <div class="crew-overlay">
+                        <a href="info/linh.html" target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="crew-card" data-index="8">
+                    <img src="assets/thanhvien/avt-tuu.jpg" alt="Crew Member 9">
+
+                    <div class="crew-overlay">
+                        <a href="info/tuu.html" target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>
+                </div>
+                <div class="crew-card" data-index="9">
+                    <img src="assets/thanhvien/avt-ngan.jpg" alt="Crew Member 10">
+
+                    <div class="crew-overlay">
+                        <a href="info/nga.html" target="_blank" class="crew-btn">Xem chi tiết</a>
+                    </div>   
+                </div>
+                </div>
+                <button class="crew-arrow crew-right">›</button>
+            </div>
+
+            <div class="crew-info">
+                <h2 class="crew-name">Nguyên Thảo</h2>
+                <p class="crew-role">Nhóm trưởng</p>
+            </div>
+
+            <div class="crew-dots">
+                <div class="crew-dot active" data-index="0"></div>
+                <div class="crew-dot" data-index="1"></div>
+                <div class="crew-dot" data-index="2"></div>
+                <div class="crew-dot" data-index="3"></div>
+                <div class="crew-dot" data-index="4"></div>
+                <div class="crew-dot" data-index="5"></div>
+                <div class="crew-dot" data-index="6"></div>
+                <div class="crew-dot" data-index="7"></div>
+                <div class="crew-dot" data-index="8"></div>
+                <div class="crew-dot" data-index="9"></div>
+                <div class="crew-dot" data-index="10"></div>
+            </div>
+        </section>
+
+        <section class="qualification section">
+            <h2 class="section-title" data-heading="Hành trình của chúng tôi">Chứng chỉ</h2>
+
+            <div class="qualification-container container grid">
+                <div class="education">
+                    <h3 class="qualification-title">
+                        <i class="uil uil-graduation-cap"></i> Học vấn
+                    </h3>
+
+                    <div class="timeline">
+
+                        <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-title">
+                                Hoàn thành chương trình Tiểu học – TP. Lạc Tánh, Bình Thuận
+                            </h3>
+                            <p class="timeline-text">
+                                Tốt nghiệp loại Giỏi, đạt nhiều thành tích học tập nổi bật.
+                            </p>
+                            <span class="timeline-date">
+                                <i class="uil uil-calendar-alt"></i> 2015 – 2019
+                            </span>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-title">
+                                Tốt nghiệp Trung học Cơ sở
+                            </h3>
+                            <p class="timeline-text">
+                                Đạt danh hiệu Học sinh Giỏi, tích cực tham gia các hoạt động học thuật và phong trào.
+                            </p>
+                            <span class="timeline-date">
+                                <i class="uil uil-calendar-alt"></i> 2019 – 2023
+                            </span>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-title">
+                                Học sinh lớp 12 – Trường THPT Tánh Linh
+                            </h3>
+                            <p class="timeline-text">
+                                Định hướng phát triển chuyên sâu trong lĩnh vực Công nghệ & Thiết kế Web.
+                            </p>
+                            <span class="timeline-date">
+                                <i class="uil uil-calendar-alt"></i> 2023 – 2026
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <h3 class="qualification-title"><i class="uil uil-suitcase"></i>Kinh nghiệm</h3>
+
+                    <div class="timeline-item">
+                        <div class="circle-dot"></div>
+                        <h3 class="timeline-title">Học sinh giỏi 12 năm liên tiếp</h3>
+                        <p class="timeline-text">
+                            Thành tích được duy trì bằng niềm tin mãnh liệt rằng “chắc đề năm nay dễ”.
+                        </p>
+                        <span class="timeline-date">
+                            <i class="uil uil-calendar-alt"></i> 2013 – 2026 (sống sót qua mọi kỳ thi)
+                        </span>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="circle-dot"></div>
+                        <h3 class="timeline-title">Thành thạo nhiều thứ tiếng</h3>
+                        <p class="timeline-text">
+                            Giao tiếp tốt bằng Tiếng Việt, Tiếng Anh cơ bản,
+                            và đặc biệt là Tiếng “em chưa học bài”.
+                        </p>
+                        <span class="timeline-date">
+                            <i class="uil uil-calendar-alt"></i> Rèn luyện mỗi ngày trong môi trường áp lực cao
+                        </span>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="circle-dot"></div>
+                        <h3 class="timeline-title">Đạt nhiều thành tích nổi bật</h3>
+                        <p class="timeline-text">
+                            Nổi bật trong các tình huống bất ngờ:
+                            bị gọi tên, bị kiểm tra miệng, và bị deadline dí sát gáy.
+                            Kỹ năng chính: Giữ gương mặt bình tĩnh khi bên trong đang hoảng loạn.
+                        </p>
+                        <span class="timeline-date">
+                            <i class="uil uil-calendar-alt"></i> Kinh nghiệm tích lũy theo năm tháng
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="testimonials section">
+                <h2 class="section-title" data-heading="">Những người nổi tiếng nói gì về nhóm 2?</h2>
+
+                <div class="testimonials-container container swiper">
+                    <div class="swiper-wrapper">
+                        <div class="testimonial-card swiper-slide">
+                            <div class="testimonial-quote">
+                                <i class='bx bxs-quote-alt-left'></i>
+                            </div>
+                            <p class="testimonial-description">Nếu như nhóm rắn sinh ra cùng thời với tôi thì có lẽ bây giờ họ đã bằng tuổi tôi</p>
+                            <h3 class="testimonial-date">3/30/2025</h3>
+                            <div class="testimonial-profile">
+                                <img src="assets/ronaldo.jpg" alt="" class="testimonial-profile-img">
+
+                                <div class="testimonial-profile-data">
+                                    <span class="testimonial-profile-name">Cristiano Ronaldo</span>
+                                    <span class="testimonail-profile-detail">Cầu thủ nổi tiếng</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card swiper-slide">
+                            <div class="testimonial-quote">
+                                <i class='bx bxs-quote-alt-left'></i>
+                            </div>
+                            <p class="testimonial-description">Nếu bạn chỉ biết đến sự tuyệt vời của tổ rắn thì bạn sẽ có chìa khóa của vũ trụ</h3>
+                            <div class="testimonial-profile">
+                                <img src="https://sohanews.sohacdn.com/160588918557773824/2022/1/10/photo-1-16417784218802094795337.jpg" alt="" class="testimonial-profile-img">
+
+                                <div class="testimonial-profile-data">
+                                    <span class="testimonial-profile-name">-Nikola Tesla-</span>
+                                    <span class="testimonail-profile-detail">Nhà vật lý học</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card swiper-slide">
+                            <div class="testimonial-quote">
+                                <i class='bx bxs-quote-alt-left'></i>
+                            </div>
+                            <p class="testimonial-description">Sách có thể đốt nhưng trí tuệ tổ 2 không thể diệt</p>
+                            <h3 class="testimonial-date">10/29/936</h3>
+                            <div class="testimonial-profile">
+                                <img src="https://media-cdn-v2.laodong.vn/storage/newsportal/2024/6/25/1357372/Tan-Thuy-Hoang.jpeg" alt="" class="testimonial-profile-img">
+
+                                <div class="testimonial-profile-data">
+                                    <span class="testimonial-profile-name">-Tần Thủy Hoàng-</span>
+                                    <span class="testimonail-profile-detail"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                
+            </section>
+        </section>
+
+        <section class="work" id="work">
+
+            <div class="work-container grid">
+
+
+            
+            </div>
+        </section>
+
+        <div class="portfolio-popup">
+            <div class="portfolio-popup-inner">
+                <div class="portfolio-popup-content grid">
+                    <span class="portfolio-popup-close"><i class="uil uil-times"></i></span>
+
+                </div>
+            </div>
+        </div>
+
+        <section class="work section" id="work">
+            <h2 class="section-title" data-heading="">Game vui nhộn</h2>
+
+            <div class="work-filters">
+                <span class="work-item active-work" data-filter="all">All</span>
+            </div>
+
+            <div class="work-container container grid">
+                <div class="work-card mix web">
+                    <img src="https://aov-builds.com/wp-content/uploads/2025/04/xi-dach-zbet-1.jpg" alt="" class="work-img">
+                    <h3 class="work-title">Xì dách</h3>
+                    <a href="game/blackjack/index.html" target="_blank" class="work-button">
+                        Demo <i class="uil uil-arrow-right work-button-icon"></i>
+                    </a>
+
+                </div>
+
+                <div class="work-card mix app">
+                    <img src="https://png.pngtree.com/png-vector/20230822/ourmid/pngtree-chinese-pagoda-line-icon-with-trees-and-temples-in-pagoda-style-vector-png-image_6847246.png" alt="" class="work-img">
+                    <h3 class="work-title">Lễ chùa online</h3>
+                    <a href="game/chua-online/index.html" target="_blank" class="work-button">
+                        Demo <i class="uil uil-arrow-right work-button-icon"></i>
+                    </a>
+                </div>
+
+                <div class="work-card mix design">
+                    <img src="https://www.shutterstock.com/image-vector/female-athlete-biathlon-suit-aiming-600nw-2657143431.jpg" alt="" class="work-img">
+                    <h3 class="work-title">Bắn súng</h3>
+                    <a href="game/space-huggersaction-roguelike-game-in-13kb-of-javascript/dist/index.html" target="_blank" class="work-button">
+                        Demo <i class="uil uil-arrow-right work-button-icon"></i>
+                    </a>
+                </div>
+
+                <div class="work-card mix app">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTZcaoCraTFvHbkUuIhjYNG4jbLjC0s4GtVg&s" alt="" class="work-img">
+                    <h3 class="work-title">Khủng long</h3>
+                    <a href="game/dinosaur-game-chrome/src/index.html" target="_blank" class="work-button">
+                        Demo <i class="uil uil-arrow-right work-button-icon"></i>
+                    </a>
+                </div>
+
+                <div class="work-card mix web">
+                    <img src="https://free.vector6.com/wp-content/uploads/2020/05/0ndsdfg-Phao-Hoa-Phao-Hoa-41.jpg" alt="" class="work-img">
+                    <h3 class="work-title">Pháo hoa</h3>
+                    <a href="game/Firework/index.html" target="_blank" class="work-button">
+                        Demo <i class="uil uil-arrow-right work-button-icon"></i>
+                    </a>
+                </div>
+
+                <div class="work-card mix design">
+                    <img src="https://sohanews.sohacdn.com/160588918557773824/2022/8/12/photo-1-16602867684241555309312.jpeg" alt="" class="work-img">
+                    <h3 class="work-title">phòng thủ ngoài hành tinh</h3>
+                    <a href="game/js-planet-defense-game/src/index.html" target="_blank" class="work-button">
+                        Demo <i class="uil uil-arrow-right work-button-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact">
+            <h2 class="section-title" data-heading="Get in Touch">Liên hệ chúng tôi</h2>
+
+            <div class="contact-container container grid">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <i class="uil uil-envelope-edit contact-card-icon"></i>
+                            <h3 class="contact-card-title">Email</h3>
+                            <span class="contact-card-data">nguyentam081008@gmail.com</span>
+                            <span class="contact-button">Write me <i class="uil uil-arrow-right contact-button-icon"></i></span>
+                        </div>
+
+                        <div class="contact-card">
+                            <i class="uil uil-whatsapp contact-card-icon"></i>
+                            <h3 class="contact-card-title">Number phone</h3>
+                            <span class="contact-card-data">+84 977540241</span>
+                            <span class="contact-button">Write me <i class="uil uil-arrow-right contact-button-icon"></i></span>
+                        </div>
+
+                        <div class="contact-card">
+                            <i class="uil uil-facebook-messenger contact-card-icon"></i>
+                            <h3 class="contact-card-title">Messenger</h3>
+                            <span class="contact-card-data">kt007.info</span>
+                            <span class="contact-button">Write me <i class="uil uil-arrow-right contact-button-icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-content">
+                    <form action="" class="contact-form">
+                        <div class="input-container">
+                            <input type="text" class="input">
+                            <label for="">Username</label>
+                            <span>Username</span>
+                        </div>
+    
+                        <div class="input-container">
+                            <input type="email" class="input">
+                            <label for="">Email</label>
+                            <span>Email</span>
+                        </div>
+    
+                        <div class="input-container">
+                            <input type="tel" class="input">
+                            <label for="">Phone</label>
+                            <span>Phone</span>
+                        </div>
+    
+                        <div class="input-container textarea">
+                            <textarea name="" id="" class="input"></textarea>
+                            <label for="">Message</label>
+                            <span>Message</span>
+                        </div>
+    
+                        <button type="submit" class="button"><i class="uil uil-navigator button-icon"></i>Gửi đi</button>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <div class="footer-bg">
+                <div class="footer-container container grid">
+                    <div>
+                        <h1 class="footer-title">RẮN ĐỘC</h1>
+                        <span class="footer-subtitle">A2 k37 - THPT TÁNH LINH</span>
+                    </div>
+
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#contact" class="footer-links">Liên hệ</a>
+                        </li>
+                    </ul>
+
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/kt007.info" target="_blank" class="footer-social">
+                            <i class="uil uil-facebook-f"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/minhtam_007" target="_blank" class="footer-social">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+
+                        <a href="https://www.x.com" target="_blank" class="footer-social">
+                            <i class="uil uil-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="footer-copy">&#169; <a href="https:facebook.com/kt007.info">ULTRA CODE</a>. All rights reserved</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Big Smooth Snake</title>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #1a1a1a, #000);
+  }
+  canvas {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+// ===== BIGGER SETTINGS =====
+const segmentCount = 6;     
+const spacing = 14;
+const maxStretch = 3;
+const waveStrength = 4;
+const waveSpeed = 0.25;
+const maxSpeed = 10;
+
+const segments = [];
+
+for (let i = 0; i < segmentCount; i++) {
+  segments.push({
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    vx: 0,
+    vy: 0
+  });
+}
+
+let mouse = {
+  x: canvas.width / 2,
+  y: canvas.height / 2
+};
+
+document.addEventListener("mousemove", (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+let time = 0;
+
+function update() {
+
+  let head = segments[0];
+  let dx = mouse.x - head.x;
+  let dy = mouse.y - head.y;
+
+  head.vx += dx * 0.04;
+  head.vy += dy * 0.04;
+
+  head.vx *= 0.85;
+  head.vy *= 0.85;
+
+  let speed = Math.sqrt(head.vx * head.vx + head.vy * head.vy);
+  if (speed > maxSpeed) {
+    head.vx = (head.vx / speed) * maxSpeed;
+    head.vy = (head.vy / speed) * maxSpeed;
+  }
+
+  head.x += head.vx;
+  head.y += head.vy;
+
+  for (let i = 1; i < segments.length; i++) {
+
+    let prev = segments[i - 1];
+    let seg = segments[i];
+
+    let dx = seg.x - prev.x;
+    let dy = seg.y - prev.y;
+    let dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist === 0) dist = 0.0001;
+
+    let maxDist = spacing + maxStretch;
+
+    if (dist > maxDist) {
+      let angle = Math.atan2(dy, dx);
+      seg.x = prev.x + Math.cos(angle) * maxDist;
+      seg.y = prev.y + Math.sin(angle) * maxDist;
+    }
+
+    let angle = Math.atan2(prev.y - seg.y, prev.x - seg.x);
+    let normalX = Math.cos(angle + Math.PI/2);
+    let normalY = Math.sin(angle + Math.PI/2);
+
+    let wave = Math.sin(time * waveSpeed - i * 0.6) 
+               * waveStrength 
+               * (i / segments.length);
+
+    seg.x += normalX * wave * 0.2;
+    seg.y += normalY * wave * 0.2;
+  }
+
+  time += 1;
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.beginPath();
+  ctx.moveTo(segments[0].x, segments[0].y);
+
+  for (let i = 1; i < segments.length - 1; i++) {
+    let xc = (segments[i].x + segments[i + 1].x) / 2;
+    let yc = (segments[i].y + segments[i + 1].y) / 2;
+    ctx.quadraticCurveTo(segments[i].x, segments[i].y, xc, yc);
+  }
+
+  ctx.strokeStyle = "#2ecc71";
+  ctx.lineWidth = 20;    // THÂN DÀY HƠN
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  ctx.stroke();
+
+  drawHead();
+}
+
+function drawHead() {
+  const head = segments[0];
+  const next = segments[1];
+  const angle = Math.atan2(next.y - head.y, next.x - head.x);
+
+  ctx.beginPath();
+  ctx.arc(head.x, head.y, 16, 0, Math.PI * 2);
+  ctx.fillStyle = "#27ae60";
+  ctx.fill();
+
+  // mắt
+  const eyeOffsetX = Math.cos(angle + Math.PI / 2) * 7;
+  const eyeOffsetY = Math.sin(angle + Math.PI / 2) * 7;
+
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.arc(head.x + eyeOffsetX, head.y + eyeOffsetY, 4, 0, Math.PI * 2);
+  ctx.arc(head.x - eyeOffsetX, head.y - eyeOffsetY, 4, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = "black";
+  ctx.beginPath();
+  ctx.arc(head.x + eyeOffsetX, head.y + eyeOffsetY, 2, 0, Math.PI * 2);
+  ctx.arc(head.x - eyeOffsetX, head.y - eyeOffsetY, 2, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+function animate() {
+  update();
+  draw();
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>

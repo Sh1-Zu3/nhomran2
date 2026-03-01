@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- TẾT EFFECT -->
+  <style>
+  body {
+    background: linear-gradient(135deg, #4b0000, #7a0000);
+    background-attachment: fixed;
+  }
+
+  /* hoa rơi */
+  .tet-overlay {
+    pointer-events: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://pngimg.com/uploads/cherry_blossom/cherry_blossom_PNG32.png');
+    background-size: 40px;
+    animation: tetfall 20s linear infinite;
+    opacity: 0.3;
+    z-index: 9999;
+  }
+
+  @keyframes tetfall {
+    0% { background-position: 0 -1000px; }
+    100% { background-position: 0 1000px; }
+  }
+
+  /* chữ vàng */
+  .h2, .h3, .h4, .name {
+    color: gold !important;
+  }
+
+  /* viền vàng */
+  .sidebar {
+    border-right: 2px solid gold !important;
+  }
+
+  /* glow nhẹ */
+  .article-title {
+    text-shadow: 0 0 10px gold;
+  }
+  </style>
+
+  <style>
+/* LỚP HOA RƠI */
+.flower-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.flower {
+  position: absolute;
+  top: -50px;
+  width: 30px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+  <canvas id="fireworks"></canvas>
+
+  <div class="flower-container" id="flowerContainer"></div>
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/thanhvien/anh/avt-anh.jpg"
+               alt="avatar"
+               width="80"
+               id="avatarImage">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Richard hanrick"> Tuấn Anh </h1>
+
+          <p class="title">Chem chép</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="tuananh@gmail.com" class="contact-link">tuananh@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Số điện thoại</p>
+
+              <a href="tel:+12133522795" class="contact-link">+84 99999999</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Ngày sinh</p>
+
+              <time datetime="1982-06-23">36/11/2008</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Địa chỉ </p>
+
+              <address>Lạc Hưng, Tánh Linh, Lâm Đồng</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+              
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title"> Giới thiệu </h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Cựu hsg toán
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">Sở thích cá nhân</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/thanhvien/giang/ngu.png
+                " alt="design icon" width="100" class="round-img">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"> Ngủ </h4>
+
+                <p class="service-item-text">
+                  Ngủ từ sáng đến tối
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/thanhvien/giang/nauan.jpg" alt="Web development icon" width="100" class="round-img">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"> Nấu ăn </h4>
+
+                <p class="service-item-text">
+                  ...
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/thanhvien/giang/cho.png" alt="Web development icon" width="100" class="round-img">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"> Chó </h4>
+
+                <p class="service-item-text">
+                  Chó là bạn không phải tôi
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/thanhvien/giang/dichoi.jpg" alt="Web development icon" width="100" class="round-img">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"> Đi chơi </h4>
+
+                <p class="service-item-text">
+                  um
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+        <!-- TẾT GALLERY -->
+        <section class="tet-gallery">
+
+          <h3 class="h3 service-title">Ảnh Tết 🎆</h3>
+
+          <div class="gallery-wrapper">
+
+            <button class="gallery-btn left">&#10094;</button>
+
+            <div class="gallery-content">
+              <img id="galleryImage" src="assets/images/thanhvien/anh/1.jpg">
+              <p id="galleryCaption">Mâm ngũ quả tràn đầy màu sắc( vàng_cam_lục_đỏ,..) mang đến ý nghĩa 1 cái tết nhiều sắc màu, bất ngờ. Năm nay còn bất ngờ hơn khi được điểm tô thêm cặp bánh tét gợi sự sum vầy, ấm no.</p>
+            </div>
+
+            <button class="gallery-btn right">&#10095;</button>
+
+          </div>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+  <script>
+    const images = [
+      { src: "assets/images/thanhvien/anh/1.jpg", caption: "Mâm ngũ quả tràn đầy màu sắc( vàng_cam_lục_đỏ,..) mang đến ý nghĩa 1 cái tết nhiều sắc màu, bất ngờ. Năm nay còn bất ngờ hơn khi được điểm tô thêm cặp bánh tét gợi sự sum vầy, ấm no." },
+
+      { src: "assets/images/thanhvien/anh/2.jpg", caption: "Khung cảnh gia định tập hợp vui chơi ngày tết, không chọn nơi thành thị ồn ào mà lại là nơi thiên nhiên nhiên xanh mát gợi sự bình dị, đoàn kết và an nhiên." },
+
+      { src: "assets/images/thanhvien/anh/3.jpg", caption: "Một khoảnh khắc, một kỉ niểm khó quên, tuy chỉ là những khuôn mặt non nớt của tuổi mới lớn nhưng mong trên mỗi mỗi người vẫn mãi một nụ như bây giờ." },
+      
+      { src: "assets/images/thanhvien/anh/4.jpg", caption: "Hòa mình vào cái se lạnh đêm giao thừa, vừa ngắm pháo hoa vừa đợi nồi bánh tét cầu may mắn, thịnh vượng và niềm hy vọng về một khởi đầu tốt đẹp hơn trong năm mới." }
+    ];
+
+    let currentIndex = 0;
+
+    const galleryImage = document.getElementById("galleryImage");
+    const galleryCaption = document.getElementById("galleryCaption");
+
+    document.querySelector(".gallery-btn.left").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateGallery();
+    });
+
+    document.querySelector(".gallery-btn.right").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateGallery();
+    });
+
+    function updateGallery() {
+      galleryImage.src = images[currentIndex].src;
+      galleryCaption.textContent = images[currentIndex].caption;
+    }
+  </script>
+
+  <script>
+    const container = document.getElementById("flowerContainer");
+
+    // Link hoa đào và hoa mai
+    const flowers = [
+      "assets/images/hoamai.png", // hoa đào
+      "assets/images/hoadao.png" // hoa mai giả lập vàng
+    ];
+
+    function createFlower() {
+      const flower = document.createElement("img");
+
+      // random chọn hoa đào hoặc hoa mai
+      flower.src = flowers[Math.floor(Math.random() * flowers.length)];
+      flower.classList.add("flower");
+
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (6 + Math.random() * 6) + "s";
+      flower.style.width = (20 + Math.random() * 25) + "px";
+
+      container.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 12000);
+    }
+
+    // mật độ hoa
+    setInterval(createFlower, 400);
+  </script>
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!--
+    ZOOM ẢNH
+  -->
+
+  <div id="imageModal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content-img" id="modalImg">
+  </div>
+
+  <footer class="footer">
+      <div class="footer-bg">
+          <div class="footer-container container grid">
+              <div>
+                  <h1 class="footer-title">RẮN ĐỘC</h1>
+                  <span class="footer-subtitle">A2 k37 - THPT TÁNH LINH</span>
+              </div>
+
+          </div>
+
+          <p class="footer-copy">&#169; <a href="https://codepen.io/leonam-silva-de-souza">ULTRA CODE</a>. All rights reserved</p>
+      </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      const galleryImg = document.getElementById("galleryImage");
+      const closeBtn = document.querySelector(".close-modal");
+
+      if(galleryImg){
+        galleryImg.addEventListener("click", function () {
+          modal.style.display = "flex";
+          modalImg.src = this.src;
+        });
+      }
+
+      closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          modal.style.display = "none";
+        }
+      });
+
+    });
+  </script>
+
+    <script>
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    let rockets = [];
+    let particles = [];
+
+    // Tạo tên lửa bay lên
+    function createRocket(){
+      rockets.push({
+        x: Math.random() * canvas.width,
+        y: canvas.height,
+        speed: 5 + Math.random() * 2,
+        targetY: 150 + Math.random() * (canvas.height / 2),
+        color: Math.random() > 0.5 ? "gold" : "red"
+      });
+    }
+
+    // Khi nổ
+    function explode(x,y,color){
+      for(let i=0;i<80;i++){
+        particles.push({
+          x: x,
+          y: y,
+          angle: Math.random() * Math.PI * 2,
+          speed: Math.random() * 4 + 1,
+          life: 100,
+          color: color
+        });
+      }
+    }
+
+    function animate(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+
+      // Vẽ tên lửa
+      rockets.forEach((r,index)=>{
+        r.y -= r.speed;
+
+        ctx.fillStyle = r.color;
+        ctx.beginPath();
+        ctx.arc(r.x,r.y,3,0,Math.PI*2);
+        ctx.fill();
+
+        if(r.y <= r.targetY){
+          explode(r.x,r.y,r.color);
+          rockets.splice(index,1);
+        }
+      });
+
+      // Vẽ hạt nổ
+      particles.forEach((p,index)=>{
+        p.x += Math.cos(p.angle) * p.speed;
+        p.y += Math.sin(p.angle) * p.speed + 0.5; // trọng lực
+        p.life--;
+
+        ctx.globalAlpha = p.life / 100;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,2,0,Math.PI*2);
+        ctx.fill();
+
+        if(p.life <= 0){
+          particles.splice(index,1);
+        }
+      });
+
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(animate);
+    }
+
+    setInterval(createRocket, 1200);
+    animate();
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Custom Cursor</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: url("phat1.jpg") no-repeat center center;
+    background-size: contain;
+    background-color: black;
+    cursor: default; /* Ban đầu hiện chuột bình thường */
+}
+
+/* Màn hình start */
+#startScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+#startBtn {
+    padding: 20px 50px;
+    font-size: 28px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#startBtn:hover {
+    background: darkred;
+    transform: scale(1.1);
+}
+
+/* Con trỏ custom */
+#customCursor {
+    position: fixed;
+    width: 400px;
+    height: auto;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none; /* Ban đầu ẩn */
+}
+</style>
+</head>
+
+<body>
+
+<!-- Màn hình start -->
+<div id="startScreen">
+    <button id="startBtn">BẮT ĐẦU</button>
+</div>
+
+<img id="customCursor" src="incense.png">
+
+<audio id="bgMusic" src="nammo.mp3" loop></audio>
+
+<script>
+const cursor = document.getElementById("customCursor");
+const bgMusic = document.getElementById("bgMusic");
+const startScreen = document.getElementById("startScreen");
+const startBtn = document.getElementById("startBtn");
+
+let started = false;
+
+startBtn.addEventListener("click", function () {
+
+    started = true;
+
+    // Ẩn màn hình start
+    startScreen.style.display = "none";
+
+    // Ẩn chuột mặc định
+    document.body.style.cursor = "none";
+
+    // Hiện con trỏ custom
+    cursor.style.display = "block";
+
+    // Phát nhạc
+    bgMusic.play();
+});
+
+// Di chuyển chuột
+document.addEventListener("mousemove", function(e) {
+    if (started) {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+    }
+});
+</script>
+
+</body>
+</html>

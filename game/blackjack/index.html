@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xì Dách</title>
+
+<style>
+body{
+    background:#0b5d1e;
+    font-family:Arial;
+    text-align:center;
+    color:white;
+    margin:0;
+}
+h1{margin-top:10px;}
+
+.card{
+    display:inline-block;
+    background:white;
+    color:black;
+    width:60px;
+    height:90px;
+    line-height:90px;
+    margin:5px;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:20px;
+}
+
+button{
+    padding:10px 20px;
+    margin:5px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.hit{background:#4caf50;color:white;}
+.stand{background:#f44336;color:white;}
+.bet{background:#ffc107;color:black;}
+.restart{background:#2196f3;color:white;}
+
+.box{
+    background:rgba(0,0,0,0.3);
+    padding:15px;
+    margin:10px auto;
+    border-radius:10px;
+    width:90%;
+    max-width:600px;
+}
+
+/* Popup giữa màn hình */
+#overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+#popup{
+    background:white;
+    color:black;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    width:300px;
+    animation:pop 0.3s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(0.5);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+#popup h2{
+    margin-top:0;
+}
+</style>
+</head>
+<body>
+
+<h1>🎴 XÌ DÁCH VIỆT NAM</h1>
+
+<div class="box">
+    💰 Tiền: <span id="money">500</span>
+    <br><br>
+    Cược:
+    <button class="bet" onclick="setBet(10)">10</button>
+    <button class="bet" onclick="setBet(50)">50</button>
+    <button class="bet" onclick="setBet(100)">100</button>
+    <br><br>
+    Cược hiện tại: <span id="bet">0</span>
+    <br><br>
+    <button onclick="startGame()">Bắt đầu</button>
+</div>
+
+<div class="box">
+    <h3>Nhà cái</h3>
+    <div id="dealer"></div>
+    Điểm: <span id="dealerScore">0</span>
+</div>
+
+<div class="box">
+    <h3>Người chơi</h3>
+    <div id="player"></div>
+    Điểm: <span id="playerScore">0</span>
+    <br><br>
+    <button class="hit" onclick="hit()">Rút</button>
+    <button class="stand" onclick="stand()">Dừng</button>
+    <button class="restart" onclick="restartGame()">Chơi lại</button>
+</div>
+
+<!-- Popup -->
+<div id="overlay">
+    <div id="popup">
+        <h2 id="resultText"></h2>
+        <button class="restart" onclick="closePopup()">Tiếp tục</button>
+    </div>
+</div>
+
+<script>
+let deck=[];
+let player=[];
+let dealer=[];
+let money=500;
+let bet=0;
+let gameOver=true;
+let dealerHidden=true;
+
+function createDeck(){
+    let suits=["♠","♥","♦","♣"];
+    let values=["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+    deck=[];
+    for(let s of suits){
+        for(let v of values){
+            deck.push({value:v,suit:s});
+        }
+    }
+}
+
+function shuffle(){
+    deck.sort(()=>Math.random()-0.5);
+}
+
+function getScore(hand){
+    let score=0;
+    let aces=0;
+    for(let card of hand){
+        if(card.value==="A"){score+=11;aces++;}
+        else if(["J","Q","K"].includes(card.value)){score+=10;}
+        else{score+=parseInt(card.value);}
+    }
+    while(score>21 && aces>0){
+        score-=10;aces--;
+    }
+    return score;
+}
+
+function render(){
+
+    // Player
+    document.getElementById("player").innerHTML=
+        player.map(c=>`<div class="card">${c.value}${c.suit}</div>`).join("");
+
+    // Dealer (ẩn toàn bộ)
+    if(dealerHidden){
+        document.getElementById("dealer").innerHTML=
+            dealer.map(()=>`<div class="card">🂠</div>`).join("");
+        document.getElementById("dealerScore").innerText="???";
+    } else {
+        document.getElementById("dealer").innerHTML=
+            dealer.map(c=>`<div class="card">${c.value}${c.suit}</div>`).join("");
+        document.getElementById("dealerScore").innerText=getScore(dealer);
+    }
+
+    document.getElementById("playerScore").innerText=getScore(player);
+    document.getElementById("money").innerText=money;
+    document.getElementById("bet").innerText=bet;
+}
+
+function setBet(amount){
+    if(!gameOver) return;
+    bet=amount;
+    render();
+}
+
+function startGame(){
+    if(bet===0 || bet>money){
+        alert("Chọn cược hợp lệ!");
+        return;
+    }
+
+    gameOver=false;
+    dealerHidden=true;
+    player=[];
+    dealer=[];
+    createDeck();
+    shuffle();
+
+    player.push(deck.pop());
+    dealer.push(deck.pop());
+    player.push(deck.pop());
+    dealer.push(deck.pop());
+
+    render();
+    checkSpecial();
+}
+
+function hit(){
+    if(gameOver) return;
+
+    player.push(deck.pop());
+    render();
+
+    // KHÔNG xử thua ngay khi quắc
+}
+
+function stand(){
+    if(gameOver) return;
+
+    dealerHidden=false;
+    render();
+
+    setTimeout(()=>{
+        dealerTurn();
+    },600);
+}
+
+function dealerTurn(){
+    let interval=setInterval(()=>{
+        if(getScore(dealer)<17){
+            dealer.push(deck.pop());
+            render();
+        } else {
+            clearInterval(interval);
+            finishGame();
+        }
+    },800);
+}
+
+function finishGame(){
+    let p=getScore(player);
+    let d=getScore(dealer);
+
+    let playerBust = p > 21;
+    let dealerBust = d > 21;
+
+    if(playerBust && dealerBust){
+        showPopup("🤝 Cả hai đều quắc! Hòa!");
+        return;
+    }
+
+    if(playerBust && !dealerBust){
+        money -= bet;
+        showPopup("💥 Bạn quắc! Thua!");
+        return;
+    }
+
+    if(!playerBust && dealerBust){
+        money += bet;
+        showPopup("🎉 Nhà cái quắc! Bạn thắng!");
+        return;
+    }
+
+    // Cả hai không quắc → so điểm
+    if(p > d){
+        money += bet;
+        showPopup("🎉 Bạn thắng!");
+    }else if(p < d){
+        money -= bet;
+        showPopup("😢 Bạn thua!");
+    }else{
+        showPopup("🤝 Hòa!");
+    }
+}
+
+function checkSpecial(){
+    let pScore=getScore(player);
+    if(player.length===2){
+        if(player[0].value==="A" && player[1].value==="A"){
+            dealerHidden=false;
+            money+=bet*2;
+            showPopup("🔥 XÌ BÀN!");
+        }
+        else if(pScore===21){
+            dealerHidden=false;
+            money+=bet*2;
+            showPopup("✨ XÌ DÁCH!");
+        }
+    }
+}
+
+function showPopup(text){
+    gameOver=true;
+    document.getElementById("resultText").innerText=text;
+    document.getElementById("overlay").style.display="flex";
+    render();
+}
+
+function closePopup(){
+    document.getElementById("overlay").style.display="none";
+}
+
+function restartGame(){
+    player=[];
+    dealer=[];
+    bet=0;
+    gameOver=true;
+    dealerHidden=true;
+    render();
+}
+
+render();
+</script>
+
+</body>
+</html>
